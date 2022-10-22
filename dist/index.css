@@ -1,0 +1,52 @@
+.grid-container {  display: grid;
+    background-color: gray;
+    width: 1000px;
+    height: 500px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "main-tag side-tag-side-tag-1 side-tag-side-tag-2 side-tag-side-tag-3"
+      "main-tag side-tag-side-tag-4 side-tag-side-tag-5 side-tag-side-tag-6"
+      ". . . .";
+  }
+  
+.main-tag {
+    grid-area: main-tag;
+    background-color: blue;
+    width: 250px;
+    height: 500px;
+}
+
+.side-tag {
+    background-color: red;
+    height: 100px;
+    width: 100px;
+}
+.side-tag-side-tag-1 {
+    grid-area: side-tag-side-tag-1;
+    background-color: red;
+    height: 100px;
+    width: 100px;
+}
+  
+.side-tag-side-tag-2 {
+    grid-area: side-tag-side-tag-2;
+}
+  
+.side-tag-side-tag-3 {
+    grid-area: side-tag-side-tag-3;
+}
+  
+.side-tag-side-tag-4 {
+    grid-area: side-tag-side-tag-4;
+}
+  
+.side-tag-side-tag-5 {
+    grid-area: side-tag-side-tag-5;
+}
+  
+.side-tag-side-tag-6 {
+    grid-area: side-tag-side-tag-6;
+}
