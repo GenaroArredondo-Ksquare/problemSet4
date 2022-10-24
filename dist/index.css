@@ -1,52 +1,98 @@
-.grid-container {  display: grid;
-    background-color: gray;
+body{
+    background-color: rgb(5, 5, 19);
+    font-family:'Roboto';
+}
+
+.grid-container {
+    display: grid;
+    align-self: center;
     width: 1000px;
     height: 500px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 0px 0px;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px 20px;
     grid-auto-flow: row;
     grid-template-areas:
       "main-tag side-tag-side-tag-1 side-tag-side-tag-2 side-tag-side-tag-3"
-      "main-tag side-tag-side-tag-4 side-tag-side-tag-5 side-tag-side-tag-6"
-      ". . . .";
+      "main-tag side-tag-side-tag-4 side-tag-side-tag-5 side-tag-side-tag-6";
   }
-  
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
 .main-tag {
     grid-area: main-tag;
     background-color: blue;
-    width: 250px;
-    height: 500px;
 }
 
-.side-tag {
-    background-color: red;
-    height: 100px;
-    width: 100px;
+.grid-container > section {
+    background-color: rgb(24, 24, 92);
+    border-radius: 1em;
+}
+.upper-content {
+    background-color: rgb(138, 75, 255);
+    height: 300px;  
+    width: 235px;
+    border-radius: 1em;
+}
+.bioPic {
+    border-radius: 50%;
+    border: 3px solid white;
+    margin: 1.5em;
+    width: 4em;
+    height: 4em;
+}
+.report-text > p {
+    font-size: 16px;
+    margin-left: 2em;
+    color: rgb(194, 191, 191);
+}
+.report-name {
+    font-size: 36px;
+    font-weight: lighter;
+    color: white;
+    margin-left: 0.8em;
+    margin-top: -0.4em;
+}
+.label-holder {
+    margin: 3em;
+}
+.lower-content{
+        height: 200px;  
+        width: 235px;
+        background-color: rgb(24, 24, 92);
+        border-radius: 1em;   
+}
+label {
+    color: rgb(194, 191, 191);
 }
 .side-tag-side-tag-1 {
     grid-area: side-tag-side-tag-1;
-    background-color: red;
-    height: 100px;
-    width: 100px;
+    background-color: orange !important;
 }
   
 .side-tag-side-tag-2 {
     grid-area: side-tag-side-tag-2;
+    background-color: blue !important;
 }
   
 .side-tag-side-tag-3 {
+    background-color: red !important;
     grid-area: side-tag-side-tag-3;
 }
   
 .side-tag-side-tag-4 {
+    background-color: green !important;
     grid-area: side-tag-side-tag-4;
 }
   
 .side-tag-side-tag-5 {
+    background-color: purple !important;
     grid-area: side-tag-side-tag-5;
 }
   
 .side-tag-side-tag-6 {
+    background-color: yellow !important;
     grid-area: side-tag-side-tag-6;
 }

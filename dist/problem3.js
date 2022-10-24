@@ -1,84 +1,84 @@
 "use strict";
 class Pizza {
-    constructor(size, jamon, pepe, pina, exChesse) {
+    constructor(size, ham, pepperoni, piña, extraCheese) {
         this.size = size;
-        this.jamon = jamon;
-        this.pepe = pepe;
-        this.pina = pina;
-        this.exChesse = exChesse;
+        this.ham = ham;
+        this.pepperoni = pepperoni;
+        this.piña = piña;
+        this.extraCheese = extraCheese;
     }
-    getCost() {
+    getSum() {
         let price = 0;
         if (this.size == 'small') {
-            price = 10 + (2 * (this.jamon + this.pepe + this.pina));
-            if (this.exChesse == true) {
+            price = 10 + (2 * (this.ham + this.pepperoni + this.piña));
+            if (this.extraCheese == true) {
                 price = price + 2;
             }
         }
         if (this.size == 'medium') {
-            price = 12 + (2 * (this.jamon + this.pepe + this.pina));
-            if (this.exChesse == true) {
+            price = 12 + (2 * (this.ham + this.pepperoni + this.piña));
+            if (this.extraCheese == true) {
                 price = price + 4;
             }
         }
         if (this.size == 'large') {
-            price = 14 + (3 * (this.jamon + this.pepe + this.pina));
-            if (this.exChesse == true) {
+            price = 14 + (3 * (this.ham + this.pepperoni + this.piña));
+            if (this.extraCheese == true) {
                 price = price + 6;
             }
         }
         if (this.size == 'XL') {
-            price = 18 + (4 * (this.jamon + this.pepe + this.pina));
-            if (this.exChesse == true) {
+            price = 18 + (4 * (this.ham + this.pepperoni + this.piña));
+            if (this.extraCheese == true) {
                 price = price + 6;
             }
         }
         return price;
     }
     orderSummary() {
-        let chState = '';
-        let totalIng = (this.jamon + this.pepe + this.pina);
+        let withCheese = '';
+        let totalToppings = (this.ham + this.pepperoni + this.piña);
         if (this.size == 'small')
-            this.exChesse
-                ? chState = 'Yes'
-                : chState = 'No';
+            this.extraCheese
+                ? withCheese = 'Yes'
+                : withCheese = 'No';
         return `
     
-      ====== YOUR ORDER ======= 
+      ------- PIZZA ORDER ------- 
     
-      |Size: ${this.size}
+       Size: ${this.size}
     
-      |Ingredients: ${totalIng}
+       Toppings: ${totalToppings}
     
-       Ham: ${this.jamon}
+       Ham: ${this.ham}
     
-       Peperoni: ${this.pepe}
+       Pepperoni: ${this.pepperoni}
     
-       Pineapple: ${this.pina}
+       Pineapple: ${this.piña}
     
-      |Extra Chesses: ${chState} 
+       Extra Cheese: ${withCheese} 
     
-      |Price: $${this.getCost()}
+       Price: $${this.getSum()}
     
-      ========================== 
+      ---------------------------- 
     
       `;
     }
 }
-class SizeFactory {
-    createPizza(size, jamon, pepe, pina, exChesse) {
-        return new Pizza(size, jamon, pepe, pina, exChesse);
+class DoughSize {
+    createPizza(size, ham, pepperoni, piña, extraCheese) {
+        return new Pizza(size, ham, pepperoni, piña, extraCheese);
     }
 }
-class PizzaFactory {
+class PizzaGen {
     constructor() {
-        this.pizza = new SizeFactory();
+        this.pizza = new DoughSize();
     }
     getPizza() {
         return this.pizza;
     }
 }
-const pizza = new PizzaFactory();
+const pizza = new PizzaGen();
 const order1 = pizza.getPizza().createPizza('small', 1, 1, 1, true);
 const order2 = pizza.getPizza().createPizza('medium', 1, 2, 3, false);
 const order3 = pizza.getPizza().createPizza('XL', 0, 0, 0, false);

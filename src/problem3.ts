@@ -2,41 +2,41 @@ class Pizza{
 
      private size: 'small' | 'medium' | 'large' | 'XL';
     
-     private jamon: number;
+     private ham: number;
     
-     private pepe: number;
+     private pepperoni: number;
     
-     private pina: number;
+     private piña: number;
     
-     private exChesse:boolean;
+     private extraCheese:boolean;
     
     
     
-    constructor(size:'small' | 'medium' | 'large' | 'XL', jamon:number, pepe:number, pina:number, exChesse:boolean){
+    constructor(size:'small' | 'medium' | 'large' | 'XL', ham:number, pepperoni:number, piña:number, extraCheese:boolean){
     
      this.size = size;
     
-     this.jamon = jamon;
+     this.ham = ham;
     
-     this.pepe = pepe;
+     this.pepperoni = pepperoni;
     
-     this.pina = pina;
+     this.piña = piña;
     
-     this.exChesse = exChesse;
+     this.extraCheese = extraCheese;
     
      }
     
     
     
-     getCost() {
+     getSum() {
     
       let price: number = 0;
     
       if (this.size == 'small') {
     
-       price = 10 + (2 * (this.jamon + this.pepe + this.pina))
+       price = 10 + (2 * (this.ham + this.pepperoni + this.piña))
     
-       if (this.exChesse == true) {
+       if (this.extraCheese == true) {
     
         price = price + 2
     
@@ -46,9 +46,9 @@ class Pizza{
     
       if (this.size == 'medium') {
     
-       price = 12 + (2 * (this.jamon + this.pepe + this.pina))
+       price = 12 + (2 * (this.ham + this.pepperoni + this.piña))
     
-       if (this.exChesse == true) {
+       if (this.extraCheese == true) {
     
         price = price + 4
     
@@ -58,9 +58,9 @@ class Pizza{
     
       if (this.size == 'large') {
     
-       price = 14 + (3 * (this.jamon + this.pepe + this.pina))
+       price = 14 + (3 * (this.ham + this.pepperoni + this.piña))
     
-       if (this.exChesse == true) {
+       if (this.extraCheese == true) {
         
         price = price + 6
     
@@ -70,9 +70,9 @@ class Pizza{
     
       if (this.size == 'XL') {
     
-       price = 18 + (4 * (this.jamon + this.pepe + this.pina))
+       price = 18 + (4 * (this.ham + this.pepperoni + this.piña))
     
-       if (this.exChesse == true) {
+       if (this.extraCheese == true) {
     
         price = price + 6
     
@@ -88,37 +88,37 @@ class Pizza{
     
      orderSummary(): string{
     
-      let chState:string = '';
+      let withCheese:string = '';
     
-      let totalIng: number = (this.jamon+this.pepe+this.pina);
+      let totalToppings: number = (this.ham+this.pepperoni+this.piña);
     
       if(this.size == 'small')
     
-      this.exChesse
+      this.extraCheese
     
-       ? chState = 'Yes'
+       ? withCheese = 'Yes'
     
-       : chState = 'No'
+       : withCheese = 'No'
     
       return `
     
-      ====== YOUR ORDER ======= 
+      ------- PIZZA ORDER ------- 
     
-      |Size: ${this.size}
+       Size: ${this.size}
     
-      |Ingredients: ${totalIng}
+       Toppings: ${totalToppings}
     
-       Ham: ${this.jamon}
+       Ham: ${this.ham}
     
-       Peperoni: ${this.pepe}
+       Pepperoni: ${this.pepperoni}
     
-       Pineapple: ${this.pina}
+       Pineapple: ${this.piña}
     
-      |Extra Chesses: ${chState} 
+       Extra Cheese: ${withCheese} 
     
-      |Price: $${this.getCost()}
+       Price: $${this.getSum()}
     
-      ========================== 
+      ---------------------------- 
     
       `
     
@@ -128,11 +128,11 @@ class Pizza{
     
     
     
-    class SizeFactory{
+    class DoughSize{
     
-     createPizza(size: 'small' | 'medium' | 'large' | 'XL',jamon:number, pepe:number, pina:number,exChesse:boolean){
+     createPizza(size: 'small' | 'medium' | 'large' | 'XL',ham:number, pepperoni:number, piña:number,extraCheese:boolean){
     
-      return new Pizza(size,jamon, pepe, pina,exChesse)
+      return new Pizza(size,ham, pepperoni, piña,extraCheese)
     
      }
     
@@ -140,13 +140,13 @@ class Pizza{
     
     
     
-    class PizzaFactory {
+    class PizzaGen {
     
-     pizza: SizeFactory;
+     pizza: DoughSize;
     
      constructor(){
     
-      this.pizza = new SizeFactory()
+      this.pizza = new DoughSize()
     
      }
     
@@ -163,7 +163,7 @@ class Pizza{
     
     
     
-    const pizza = new PizzaFactory();
+    const pizza = new PizzaGen();
     
     const order1 = pizza.getPizza().createPizza('small',1,1,1,true)
     
