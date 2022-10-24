@@ -2,6 +2,10 @@ const fetchData = fetch("https://gist.githubusercontent.com/carmandomx/b27e23332
 
 fetchData.then((response) => {
     return response.json();
-}).then((info) => {
-    console.log(info);
+}).then((response) => {
+    for(let i:number = 0; i < response.length; i++) {
+         let node = document.querySelector(`.side-tag-side-tag-${i+1}`)
+         console.log(node);
+        console.log(response[i].timeframes.daily.current);
+    }
 }).catch((err) => console.log(err));

@@ -1,5 +1,6 @@
 class Pizza{
 
+     //Initialize all properties for a pizza
      private size: 'small' | 'medium' | 'large' | 'XL';
     
      private ham: number;
@@ -27,7 +28,7 @@ class Pizza{
      }
     
     
-    
+    //Create method to calculate price for a pizza
      getSum() {
     
       let price: number = 0;
@@ -38,7 +39,7 @@ class Pizza{
     
        if (this.extraCheese == true) {
     
-        price = price + 2
+        price += 2;
     
        }
     
@@ -50,7 +51,7 @@ class Pizza{
     
        if (this.extraCheese == true) {
     
-        price = price + 4
+        price += 4;
     
        }
     
@@ -62,7 +63,7 @@ class Pizza{
     
        if (this.extraCheese == true) {
         
-        price = price + 6
+        price += 6;
     
        }
     
@@ -74,7 +75,7 @@ class Pizza{
     
        if (this.extraCheese == true) {
     
-        price = price + 6
+        price += 6;
     
        }
     
@@ -85,7 +86,7 @@ class Pizza{
      }
     
      
-    
+     //Create a method to show the properties and price of a pizza
      orderSummary(): string{
     
       let withCheese:string = '';
@@ -94,11 +95,7 @@ class Pizza{
     
       if(this.size == 'small')
     
-      this.extraCheese
-    
-       ? withCheese = 'Yes'
-    
-       : withCheese = 'No'
+      this.extraCheese ? withCheese = 'Yes' : withCheese = 'No'
     
       return `
     
@@ -127,7 +124,7 @@ class Pizza{
     }
     
     
-    
+    //Method to set the size
     class DoughSize{
     
      createPizza(size: 'small' | 'medium' | 'large' | 'XL',ham:number, pepperoni:number, piña:number,extraCheese:boolean){
@@ -165,11 +162,11 @@ class Pizza{
     
     const pizza = new PizzaGen();
     
-    const order1 = pizza.getPizza().createPizza('small',1,1,1,true)
+    const order1 = pizza.getPizza().createPizza('large',3,2,3,false)
     
-    const order2 = pizza.getPizza().createPizza('medium',1,2,3,false)
+    const order2 = pizza.getPizza().createPizza('small',3,1,4,false)
     
-    const order3 = pizza.getPizza().createPizza('XL',0,0,0,false)
+    const order3 = pizza.getPizza().createPizza('XL',2,2,4,true)
     
     console.log(order1.orderSummary())
     
